@@ -1,0 +1,15 @@
+.vs
+
+*.sln
+*vcxproj
+*vcxproj.*
+
+*.ini
+
+*.dll.recipe
+*.log
+*.lastbuildstate
+
+/out
+
+Makefile
