@@ -38,7 +38,7 @@ Engine::~Engine()
 bool Engine::Init()
 {
 	std::filesystem::current_path("Assets");
-
+	
 	glfwSetWindowUserPointer(m_Window, this);
 
 	glfwSetFramebufferSizeCallback(m_Window, FramebufferSizeCallback);
@@ -319,7 +319,7 @@ void Engine::InitSystems()
 			}
 		);
 
-	m_RenderShutdownSystem = m_World.system<MeshComponent>("RenderShutdownSystem")
+	m_MeshShutdownSystem = m_World.system<MeshComponent>("MeshShutdownSystem")
 		.kind(0)
 		.each([](MeshComponent& meshComponent)
 			{
@@ -402,7 +402,7 @@ void Engine::InitSystems()
 
 void Engine::Terminate()
 {
-	m_RenderShutdownSystem.run();
+	m_MeshShutdownSystem.run();
 
 	glfwTerminate();
 }

@@ -39,6 +39,11 @@ int main()
 	meshComponent.fragmentPath = "Cube.frag";
 	meshComponent.texturePath = "stevie-nicks.jpg";
 
+	MeshComponent meshComponent2;
+	meshComponent2.vertexPath = "Cube.vert";
+	meshComponent2.fragmentPath = "Cube.frag";
+	meshComponent2.texturePath = "stevie-nicks-2.jpg";
+
 	flecs::entity cubes = engine.m_World.entity("Cubes")
 		.add<TransformComponent, Global>()
 		.set<TransformComponent, Local>({glm::vec3(0.0f, 0.0f, -3.0f)});
@@ -48,12 +53,12 @@ int main()
 		.add<TransformComponent, Global>()
 		.set<TransformComponent, Local>({glm::vec3(1.0f, 0.0f, 0.0f)})
 		.set<MeshComponent>(meshComponent);
-
+	
 	flecs::entity stevieNicksCube2 = engine.m_World.entity("StevieNicksCube2")
 		.child_of(cubes)
 		.add<TransformComponent, Global>()
 		.set<TransformComponent, Local>({glm::vec3(-1.0f, 0.0f, 0.0f)})
-		.set<MeshComponent>(meshComponent);
+		.set<MeshComponent>(meshComponent2);
 
 	flecs::entity player = engine.m_World.entity("Player")
 		.add<TransformComponent, Global>()
@@ -65,7 +70,7 @@ int main()
 		.child_of(player)
 		.add<TransformComponent, Global>()
 		.set<TransformComponent, Local>({glm::vec3(0.0f, 0.0f, 0.0f)})
-		.add<CameraComponent>()
+		.set<CameraComponent>({ 60.0f })
 		.set<PlayerPitchComponent>({1.0f});
 
 	engine.InitSystems();
