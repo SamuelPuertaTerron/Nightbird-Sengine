@@ -30,10 +30,8 @@ public:
 
 	bool ShouldRun() override;
 
-	flecs::world m_EditorWorld;
-
 private:
-	bool m_shouldRun = false;
+	bool m_ShouldRun = false;
 
 	int m_SceneWidth = 1280;
 	int m_SceneHeight = 720;

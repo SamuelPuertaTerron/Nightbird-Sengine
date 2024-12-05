@@ -196,20 +196,20 @@ void EditorRenderTarget::Render()
 	int availableWidth = ImGui::GetContentRegionAvail().x;
 	ImGui::SetCursorPosX(availableWidth / 2.0f);
 	
-	ImGui::BeginDisabled(m_shouldRun);
+	ImGui::BeginDisabled(m_ShouldRun);
 	if (ImGui::Button("Play"))
 	{
 		Log("Play");
-		m_shouldRun = true;
+		m_ShouldRun = true;
 	}
 	ImGui::EndDisabled();
 
-	ImGui::BeginDisabled(!m_shouldRun);
+	ImGui::BeginDisabled(!m_ShouldRun);
 
 	if (ImGui::Button("Stop"))
 	{
 		Log("Stop");
-		m_shouldRun = false;
+		m_ShouldRun = false;
 	}
 	ImGui::EndDisabled();
 
@@ -305,7 +305,7 @@ void EditorRenderTarget::WindowResize(int width, int height)
 
 bool EditorRenderTarget::ShouldRun()
 {
-	return m_shouldRun;
+	return m_ShouldRun;
 }
 
 void EditorRenderTarget::Log(const std::string& text)

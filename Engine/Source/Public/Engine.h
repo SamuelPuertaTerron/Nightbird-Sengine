@@ -63,7 +63,7 @@ public:
 	void MainLoop();
 
 private:
-	flecs::system m_RenderShutdownSystem;
+	flecs::system m_MeshShutdownSystem;
 
 	flecs::query<const TransformComponent, const TransformComponent*, TransformComponent> m_GlobalTransformQuery;
 
